@@ -1,9 +1,14 @@
 import React from 'react'
+import { Navbar, Container } from 'react-bootstrap'
 
 const Header = () => {
     return (
         <header>
-            This is the header
+            <Navbar expand="lg" variant="light" bg="light">
+            <Container>
+            <Navbar.Brand href="#">User Directory</Navbar.Brand>
+            </Container>
+            </Navbar>
         </header>
     )
 }
