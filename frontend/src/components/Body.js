@@ -1,47 +1,36 @@
 import React from 'react'
 import EmployeeTable from './EmployeeTable'
 import { Container, Row, Col } from 'react-bootstrap'
-import employees from '../employees'
+import employees from '../employees.json'
 
-const Body = () => {
-    const employees = [
-        {
-          id: 1,
-          name: "SpongeBob",
-          image:
-            "https://vignette.wikia.nocookie.net/spongebobgalaxy/images/0/07/SpongeBob_SquarePants.png/revision/latest?cb=20171228024014",
-          occupation: "Fry Cook",
-          location: "A Pineapple Under the Sea"
-        },
-        {
-          id: 2,
-          name: "Mr. Krabs",
-          image:
-            "https://vignette3.wikia.nocookie.net/vsbattles/images/8/80/Mr._Krabs.png/revision/latest?cb=20150919162131",
-          occupation: "Restaurant Owner",
-          location: "A Giant Anchor"
-        },
-        {
-          id: 3,
-          name: "Squidward",
-          image:
-            "https://vignette2.wikia.nocookie.net/fictionalcharacters/images/a/ac/Squidward.png/revision/latest?cb=20131121012626",
-          occupation: "Cashier",
-          location: "An Easter Island Head"
-        }
-      ]
+class Body extends React.Component {
 
+   state={
+    employees
+  }
+
+  filterByDepartment = (employeeDepartment) => {
+    const employees = this.state.employees.filter((employee)=>employee.department===employeeDepartment)
+    this.setState({employeeList:employees})
+  }
+
+  filterByName = () => {
+
+  }
+
+  render() {
     return (
-        <Container>
-            <Row>
-                {employees.map((employee) => (
-                    <Col>
-                        <EmployeeTable employee={employee}/>
-                    </Col>
-                ))}
-            </Row>                  
-        </Container>
+      <Container>
+        <Row>
+          {this.state.employees.map(employee => (
+              <Col>
+                  <EmployeeTable key={employee.id} employee={employee}/>
+              </Col>
+          ))}
+        </Row>                  
+      </Container>
     )
+  }
 }
 
 export default Body
