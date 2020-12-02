@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.employee-card {
+  width: 100%;
+  margin: 30px;
+}
+
+.employee-img__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.employee-img {
+  margin: 30px;
+  height: 250px;
+  width: 250px;
+}
+
+.search-form__wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
